@@ -9,7 +9,7 @@
   --ink: #192b37;
   --muted: #778087;
   --line: #e5e8e4;
-  --green: #457b65;
+  --green: #386561;
 }
 * {
   box-sizing: border-box;
@@ -140,7 +140,11 @@ label {
   color: #fff;
 }
 .primary-button:hover {
-  background: #304653;
+  background: #2c514e;
+}
+.primary-button {
+  background: var(--green);
+  border-color: var(--green);
 }
 .primary-button:disabled {
   background: #dee3df;

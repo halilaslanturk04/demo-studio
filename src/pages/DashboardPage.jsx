@@ -52,9 +52,7 @@ function DashboardPage({ appointments, completeAppointment }) {
         <div className="dashboard-heading">
           <div>
             <h1>Gününüz kontrol altında.</h1>
-            <p className="muted">
-              Bugünün özeti.
-            </p>
+            <p className="muted">Bugünün özeti.</p>
           </div>
           <span className="date-label">
             {new Date().toLocaleDateString("tr-TR", {
@@ -77,49 +75,63 @@ function DashboardPage({ appointments, completeAppointment }) {
               <strong>{currency(todayIncome)}</strong>
             </div>
           </article>
-          <article className="stat-card">
+          <article className="stat-card daily-card">
             <span className="stat-label">Bugünkü randevular</span>
-            <strong className="stat-value">
-              {todayCompleted}
-              <span className="stat-denominator">
-                {" "}
-                / {todayAppointments.length}
+            <div className="daily-counts">
+              <div>
+                <strong>{todayCompleted}</strong>
+                <span>
+                  <i className="daily-dot done-dot" />
+                  Tamamlandı
+                </span>
+              </div>
+              <div>
+                <strong>{todayAppointments.length - todayCompleted}</strong>
+                <span>
+                  <i className="daily-dot waiting-dot" />
+                  Bekliyor
+                </span>
+              </div>
+              <span className="daily-total">
+                Bugün toplam {todayAppointments.length} randevu
               </span>
-            </strong>
-            <span className="stat-caption">randevu tamamlandı</span>
-            <progress
-              value={todayCompleted}
-              max={todayAppointments.length || 1}
-              aria-label="Bugünkü tamamlanma durumu"
-            />
-            <span className="stat-caption">
-              {todayAppointments.length - todayCompleted} randevu bekliyor
-            </span>
+            </div>
           </article>
           <article className="stat-card completion-card">
             <div>
               <span className="stat-label">Genel tamamlanma</span>
-              <strong className="stat-value">
-                {completedAppointments}
-                <span className="stat-denominator"> / {totalAppointments}</span>
-              </strong>
-              <span className="stat-caption">toplam randevu</span>
+              <p className="completion-caption">
+                {totalAppointments - completedAppointments} randevu kaldı
+              </p>
             </div>
             <svg
               className="completion-ring"
-              viewBox="0 0 120 120"
+              viewBox="0 0 220 135"
               role="img"
               aria-label={`Randevuların yüzde ${completionPercent} kadarı tamamlandı`}
             >
-              <circle className="ring-track" cx="60" cy="60" r="48" />
-              <circle
+              <path
+                className="gauge-track"
+                d="M 22 108 A 88 88 0 0 1 198 108"
+                pathLength="100"
+              />
+              <path
                 className="ring-value"
-                cx="60"
-                cy="60"
-                r="48"
+                d="M 22 108 A 88 88 0 0 1 198 108"
                 pathLength="100"
                 strokeDasharray={`${completionPercent} 100`}
               />
+              <path
+                className="gauge-ticks"
+                d="M 22 108 A 88 88 0 0 1 198 108"
+                pathLength="100"
+              />
+              <text className="gauge-count" x="110" y="92" textAnchor="middle">
+                {completedAppointments} / {totalAppointments}
+              </text>
+              <text className="gauge-label" x="110" y="113" textAnchor="middle">
+                tamamlandı
+              </text>
             </svg>
             <div className="chart-legend">
               <span>

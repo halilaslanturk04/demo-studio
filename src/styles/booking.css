@@ -69,9 +69,9 @@
 }
 .date-button.selected,
 .hour-button.selected {
-  background: #edf4ee;
-  border-color: #648a71;
-  color: #31523b;
+  background: #e6f0ed;
+  border-color: var(--green);
+  color: var(--green);
 }
 .hours-grid {
   display: grid;
