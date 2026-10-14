@@ -12,11 +12,14 @@ function LoginPage() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    if (phone === demoPhone && password === demoPassword) {
+    const isOwnerLogin = phone === demoPhone && password === demoPassword;
+    const isDemoLogin = phone.trim() === "" && password === "";
+
+    if (isOwnerLogin || isDemoLogin) {
       setError("");
       navigate("/dashboard");
     } else {
-      setError("Telefon numarası veya şifre hatalı.");
+      setError("Telefon numarası veya şifre hatalı. Demoyu incelemek için alanları boş bırakabilirsiniz.");
     }
   }
 
@@ -36,7 +39,6 @@ function LoginPage() {
             type="tel"
             autoComplete="username"
             placeholder="05XX XXX XX XX"
-            required
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
           />
@@ -46,7 +48,6 @@ function LoginPage() {
             type="password"
             autoComplete="current-password"
             placeholder="Şifrenizi girin"
-            required
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
@@ -55,6 +56,7 @@ function LoginPage() {
               {error}
             </p>
           )}
+          <p className="field-note">Demoyu incelemek için alanları boş bırakıp giriş yapabilirsiniz.</p>
           <button className="primary-button" type="submit">
             Giriş yap <span aria-hidden="true">↗</span>
           </button>

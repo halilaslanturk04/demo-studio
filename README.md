@@ -25,6 +25,8 @@ npm run lint
 
 ## Live demo
 
-This project is not published as a live website yet. You can run it locally using the commands above.
+[Open Demo Studio](https://demo-studio-cyan.vercel.app/)
+
+Leave the phone and password fields empty and click **Giriş yap** to explore the demo. You can create and complete appointments in your own browser.
 
 This is a frontend demo. Login is for demonstration, and appointments are stored in the current browser. A backend is the next step.
