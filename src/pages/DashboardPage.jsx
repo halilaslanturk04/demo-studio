@@ -78,23 +78,31 @@ function DashboardPage({ appointments, completeAppointment }) {
           <article className="stat-card daily-card">
             <span className="stat-label">Bugünkü randevular</span>
             <div className="daily-counts">
-              <div>
-                <strong>{todayCompleted}</strong>
-                <span>
-                  <i className="daily-dot done-dot" />
-                  Tamamlandı
-                </span>
+              <div><strong>{todayCompleted}<small> / {todayAppointments.length}</small></strong><span>randevu tamamlandı</span></div>
+              <div
+                className="daily-steps"
+                aria-label="Bugünkü randevu durumları"
+              >
+                {todayAppointments.length ? (
+                  todayAppointments
+                    .filter((appointment) => appointment.status === "completed")
+                    .sort((a, b) => a.time.localeCompare(b.time))
+                    .map((appointment) => (
+                      <span
+                        key={appointment.id}
+                        className="daily-step step-completed"
+                        title={`${appointment.time} · ${appointment.status === "completed" ? "Tamamlandı" : "Bekliyor"}`}
+                        aria-label={`${appointment.time}, ${appointment.status === "completed" ? "tamamlandı" : "bekliyor"}`}
+                      >
+                        ✓
+                      </span>
+                    ))
+                ) : (
+                  <span className="no-daily-appointments">
+                    Bugün henüz randevu yok
+                  </span>
+                )}
               </div>
-              <div>
-                <strong>{todayAppointments.length - todayCompleted}</strong>
-                <span>
-                  <i className="daily-dot waiting-dot" />
-                  Bekliyor
-                </span>
-              </div>
-              <span className="daily-total">
-                Bugün toplam {todayAppointments.length} randevu
-              </span>
             </div>
           </article>
           <article className="stat-card completion-card">
@@ -106,30 +114,25 @@ function DashboardPage({ appointments, completeAppointment }) {
             </div>
             <svg
               className="completion-ring"
-              viewBox="0 0 220 135"
+              viewBox="0 0 220 220"
               role="img"
               aria-label={`Randevuların yüzde ${completionPercent} kadarı tamamlandı`}
             >
-              <path
+              <circle
                 className="gauge-track"
-                d="M 22 108 A 88 88 0 0 1 198 108"
+                cx="110" cy="110" r="88"
                 pathLength="100"
               />
-              <path
+              <circle
                 className="ring-value"
-                d="M 22 108 A 88 88 0 0 1 198 108"
+                cx="110" cy="110" r="88"
                 pathLength="100"
                 strokeDasharray={`${completionPercent} 100`}
               />
-              <path
-                className="gauge-ticks"
-                d="M 22 108 A 88 88 0 0 1 198 108"
-                pathLength="100"
-              />
-              <text className="gauge-count" x="110" y="92" textAnchor="middle">
-                {completedAppointments} / {totalAppointments}
+              <text className="gauge-count" x="110" y="111" textAnchor="middle">
+                %{completionPercent}
               </text>
-              <text className="gauge-label" x="110" y="113" textAnchor="middle">
+              <text className="gauge-label" x="110" y="135" textAnchor="middle">
                 tamamlandı
               </text>
             </svg>

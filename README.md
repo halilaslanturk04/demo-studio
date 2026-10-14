@@ -1,16 +1,18 @@
 # Demo Studio
 
-A minimal, responsive React/Vite appointment management demo in Turkish.
+I built Demo Studio to practice creating a simple appointment booking and studio management app with React.
 
-## Features
+## What it does
 
-- Phone/password demo login
-- Three-day booking with unavailable time slots
-- Daily appointment progress and completion ring
-- Completed appointment fees, daily income and total income
-- Browser persistence with localStorage
-- Separate shared, login, booking and dashboard CSS files
-- Keyboard focus states and reduced-motion support
+- Customers can choose a day and an available time to book an appointment.
+- The dashboard shows today's appointments and their completion status.
+- I can complete an appointment, enter the fee and see the daily and total income.
+- Appointments stay saved in the browser after refreshing the page.
+- The interface works on desktop and mobile, with a consistent petrol green theme.
+
+## Technologies
+
+React, JavaScript, CSS, Vite, Git and GitHub.
 
 ## Development
 
@@ -21,6 +23,8 @@ npm run build
 npm run lint
 ```
 
-`src/App.jsx` manages routes, appointment state and persistence. `src/pages/` contains the three page components. `src/styles/` contains shared styles and one stylesheet per page.
+## Live demo
 
-This is a frontend learning project. Login uses demonstration values in client code, not production authentication. Records are stored in the current browser. Real customer use requires a backend and server-side authentication.
+This project is not published as a live website yet. You can run it locally using the commands above.
+
+This is a frontend demo. Login is for demonstration, and appointments are stored in the current browser. A backend is the next step.
