@@ -1,0 +1,265 @@
+:root {
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+  color: #202c35;
+  background: #f6f7f5;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  font-weight: 400;
+  --ink: #192b37;
+  --muted: #778087;
+  --line: #e5e8e4;
+  --green: #457b65;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+button,
+input {
+  font: inherit;
+}
+button,
+a,
+input {
+  -webkit-tap-highlight-color: transparent;
+}
+button,
+a {
+  touch-action: manipulation;
+}
+button {
+  cursor: pointer;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+h1 {
+  font-size: clamp(28px, 3.6vw, 42px);
+  font-weight: 500;
+  letter-spacing: -1.6px;
+  line-height: 1.2;
+}
+h2 {
+  font-size: 19px;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+}
+h3 {
+  font-weight: 500;
+}
+button {
+  transition:
+    background 0.18s,
+    color 0.18s,
+    border-color 0.18s,
+    transform 0.18s;
+}
+button:active:not(:disabled) {
+  transform: translateY(1px);
+}
+button:disabled {
+  cursor: not-allowed;
+}
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid #77a68e;
+  outline-offset: 4px;
+}
+input {
+  width: 100%;
+  min-width: 0;
+  border: 1px solid #dfe4e0;
+  border-radius: 8px;
+  background: #fff;
+  padding: 14px 15px;
+  color: var(--ink);
+  outline: none;
+  transition:
+    border-color 0.18s,
+    box-shadow 0.18s;
+}
+input:focus {
+  border-color: var(--green);
+  box-shadow: 0 0 0 3px #457b6512;
+}
+input::placeholder {
+  color: #a0a6a8;
+}
+label {
+  font-size: 13px;
+  font-weight: 500;
+}
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+.muted {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.7;
+}
+.eyebrow {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: var(--muted);
+}
+.brand {
+  font-size: 23px;
+  font-weight: 600;
+  letter-spacing: -1.1px;
+  white-space: nowrap;
+}
+.brand span {
+  color: #7fa98f;
+}
+.primary-button,
+.secondary-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  min-height: 46px;
+  padding: 12px 20px;
+  border: 1px solid var(--ink);
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  background: var(--ink);
+  color: #fff;
+}
+.primary-button:hover {
+  background: #304653;
+}
+.primary-button:disabled {
+  background: #dee3df;
+  border-color: #dee3df;
+  color: #8b9690;
+}
+.secondary-button {
+  background: #fff;
+  color: var(--ink);
+  border-color: var(--line);
+}
+.secondary-button:hover {
+  background: #edf2ed;
+  border-color: #c5d3c9;
+}
+.text-button {
+  border: 0;
+  background: none;
+  color: var(--muted);
+  padding: 12px;
+}
+.error-message {
+  color: #a5413a;
+  font-size: 13px;
+  line-height: 1.6;
+}
+.success-message {
+  background: #e9f2ec;
+  border: 1px solid #cddfd2;
+  color: #37664b;
+  border-radius: 10px;
+  padding: 17px 20px;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+.app-shell {
+  min-height: 100vh;
+}
+.topbar {
+  max-width: 1320px;
+  margin: auto;
+  padding: 28px 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--line);
+  gap: 20px;
+}
+.topbar nav {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  font-size: 12px;
+  color: var(--muted);
+}
+.topbar nav a:hover {
+  color: var(--ink);
+}
+.nav-active {
+  color: var(--ink);
+}
+.page-footer {
+  font-size: 11px;
+  color: #969d99;
+  text-align: center;
+  padding: 30px;
+}
+.page-heading .eyebrow,
+.dashboard-heading .eyebrow {
+  margin-bottom: 14px;
+}
+.page-heading .muted,
+.dashboard-heading .muted {
+  margin-top: 14px;
+}
+.field-note {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 16px;
+}
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+main {
+  animation: appear 0.4s ease-out;
+}
+@media (max-width: 600px) {
+  .topbar {
+    padding: 22px 20px;
+    flex-wrap: wrap;
+  }
+  .topbar nav {
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .brand {
+    font-size: 21px;
+  }
+  h1 {
+    letter-spacing: -1px;
+  }
+  .primary-button,
+  .secondary-button {
+    gap: 12px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
