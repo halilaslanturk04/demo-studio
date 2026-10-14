@@ -238,9 +238,6 @@ function BookingPage({ addAppointment, appointments }) {
           )}
         </form>
       </main>
-      <footer className="page-footer">
-        demo studio · Size zaman ayırıyoruz.
-      </footer>
     </div>
   );
 }

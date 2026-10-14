@@ -59,7 +59,6 @@ function LoginPage() {
             Giriş yap <span aria-hidden="true">↗</span>
           </button>
         </form>
-        <p className="login-footer">Daha düzenli bir gün, tek bir yerde.</p>
       </section>
     </main>
   );

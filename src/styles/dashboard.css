@@ -1,7 +1,7 @@
 .dashboard-main {
   max-width: 1224px;
   margin: auto;
-  padding: 48px 48px 10px;
+  padding: 48px 48px 48px;
 }
 .dashboard-heading {
   display: flex;
@@ -18,13 +18,16 @@
 .stats-grid {
   display: grid;
   grid-template-columns: 1.15fr 1fr 1.1fr;
-  gap: 18px;
+  gap: 0;
+  background: #fff;
+  border-radius: 26px;
+  overflow: hidden;
 }
 .stat-card {
-  padding: 26px;
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  background: #fff;
+  padding: 30px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
   min-width: 0;
   display: flex;
   flex-direction: column;
@@ -53,13 +56,12 @@
   color: var(--muted);
 }
 .income-card {
-  background: #1d303a;
+  background: #386561;
   color: #fff;
-  border-color: #1d303a;
 }
 .income-card .stat-label,
 .income-card .stat-caption {
-  color: #a5b7b7;
+  color: #d1e1dc;
 }
 .income-divider {
   height: 1px;
@@ -72,7 +74,7 @@
   justify-content: space-between;
   gap: 12px;
   font-size: 11px;
-  color: #adbfba;
+  color: #d1e1dc;
 }
 .income-today strong {
   font-size: 14px;
@@ -105,6 +107,7 @@ progress::-moz-progress-bar {
   grid-template-columns: 1fr 100px;
   align-items: center;
   gap: 10px;
+  border-left: 1px solid var(--line);
 }
 .completion-ring {
   width: 100%;
@@ -123,11 +126,6 @@ progress::-moz-progress-bar {
   transform: rotate(-90deg);
   transform-origin: 60px 60px;
   transition: stroke-dasharray 0.5s ease;
-}
-.completion-ring text {
-  fill: var(--ink);
-  font-size: 19px;
-  font-weight: 500;
 }
 .chart-legend {
   grid-column: 1/-1;
@@ -337,7 +335,7 @@ progress::-moz-progress-bar {
     padding: 36px 24px;
   }
   .stats-grid {
-    gap: 12px;
+    gap: 0;
   }
   .stat-card {
     padding: 20px;
@@ -406,6 +404,8 @@ progress::-moz-progress-bar {
   }
   .completion-card {
     grid-template-columns: 1fr 100px;
+    border-left: 0;
+    border-top: 1px solid var(--line);
   }
   .dashboard-main {
     padding-left: 20px;

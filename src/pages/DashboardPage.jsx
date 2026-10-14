@@ -51,10 +51,9 @@ function DashboardPage({ appointments, completeAppointment }) {
       <main className="dashboard-main">
         <div className="dashboard-heading">
           <div>
-            <p className="eyebrow">STÜDYONUZ, BİR BAKIŞTA</p>
             <h1>Gününüz kontrol altında.</h1>
             <p className="muted">
-              Randevularınızı takip edin, emeğinizin karşılığını görün.
+              Bugünün özeti.
             </p>
           </div>
           <span className="date-label">
@@ -121,9 +120,6 @@ function DashboardPage({ appointments, completeAppointment }) {
                 pathLength="100"
                 strokeDasharray={`${completionPercent} 100`}
               />
-              <text x="60" y="65" textAnchor="middle">
-                %{completionPercent}
-              </text>
             </svg>
             <div className="chart-legend">
               <span>
@@ -278,9 +274,6 @@ function DashboardPage({ appointments, completeAppointment }) {
           )}
         </section>
       </main>
-      <footer className="page-footer">
-        demo studio · Her detay yerli yerinde.
-      </footer>
     </div>
   );
 }

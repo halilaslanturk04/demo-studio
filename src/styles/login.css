@@ -3,7 +3,7 @@
   display: grid;
   place-items: center;
   padding: 32px 20px;
-  background: #15232e;
+  background: #526775;
 }
 .login-card {
   width: 100%;
@@ -41,14 +41,6 @@
 .login-form .primary-button {
   margin-top: 14px;
   justify-content: space-between;
-}
-.login-footer {
-  margin-top: 32px;
-  padding-top: 22px;
-  border-top: 1px solid var(--line);
-  font-size: 11px;
-  color: #959c97;
-  text-align: center;
 }
 @media (max-width: 420px) {
   .login-card {
