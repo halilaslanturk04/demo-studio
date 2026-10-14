@@ -27,6 +27,6 @@ npm run lint
 
 [Open Demo Studio](https://demo-studio-cyan.vercel.app/)
 
-Leave the phone and password fields empty and click **Giriş yap** to explore the demo. You can create and complete appointments in your own browser.
+Click **Giriş yap** to explore the demo. The form accepts empty fields or any values; no real phone number or password is needed. You can create and complete appointments in your own browser.
 
 This is a frontend demo. Login is for demonstration, and appointments are stored in the current browser. A backend is the next step.

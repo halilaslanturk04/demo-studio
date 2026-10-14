@@ -5,22 +5,11 @@ import "../styles/login.css";
 function LoginPage() {
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
   const navigate = useNavigate();
-  const demoPhone = "05338522839";
-  const demoPassword = "1234";
 
   function handleSubmit(e) {
     e.preventDefault();
-    const isOwnerLogin = phone === demoPhone && password === demoPassword;
-    const isDemoLogin = phone.trim() === "" && password === "";
-
-    if (isOwnerLogin || isDemoLogin) {
-      setError("");
-      navigate("/dashboard");
-    } else {
-      setError("Telefon numarası veya şifre hatalı. Demoyu incelemek için alanları boş bırakabilirsiniz.");
-    }
+    navigate("/dashboard");
   }
 
   return (
@@ -37,7 +26,7 @@ function LoginPage() {
           <input
             id="phone"
             type="tel"
-            autoComplete="username"
+            autoComplete="off"
             placeholder="05XX XXX XX XX"
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
@@ -46,17 +35,12 @@ function LoginPage() {
           <input
             id="password"
             type="password"
-            autoComplete="current-password"
+            autoComplete="off"
             placeholder="Şifrenizi girin"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          {error && (
-            <p className="error-message" role="alert">
-              {error}
-            </p>
-          )}
-          <p className="field-note">Demoyu incelemek için alanları boş bırakıp giriş yapabilirsiniz.</p>
+          <p className="field-note">Demo sürümü. Gerçek numara veya şifre girmeniz gerekmez.</p>
           <button className="primary-button" type="submit">
             Giriş yap <span aria-hidden="true">↗</span>
           </button>
